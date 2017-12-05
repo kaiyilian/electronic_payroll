@@ -1,0 +1,158 @@
+
+body {
+    /*background: #f2f2f2;*/
+    max-width: 640px;
+    margin: 0 auto;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    box-sizing: border-box;
+    border: 0;
+    vertical-align: middle
+}
+
+input, button, textarea, select, optgroup, option {
+    font-family: inherit;
+    font-size: inherit;
+    font-style: inherit;
+    font-weight: inherit;
+    outline: 0
+}
+
+div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, textarea,
+p, blockquote, th, td, header, hgroup, nav, section, article, aside, footer, figure, figcaption, menu, button {
+    margin: 0;
+    padding: 0
+}
+
+.bg_white {
+    background-color: #fff;
+}
+
+a[href='http://www.cnzz.com/stat/website.php?web_id=1262291682'] {
+    display: none;
+}
+
+.payroll_container {
+}
+
+.payroll_container .basic_info_container {
+    position: relative;
+    color: #666;
+    padding: 15px 10px;
+    font-size: 15px;
+}
+
+.payroll_container .basic_info_container .corp_name {
+}
+
+.payroll_container .basic_info_container .salary_send_time {
+    text-align: right;
+}
+
+.payroll_container .salary_name_container {
+    text-align: center;
+    font-weight: bold;
+    font-size: 18px;
+    margin-top: 30px;
+    line-height: 40px;
+    font-family: '黑体';
+    color: #333333;
+}
+
+.payroll_container .user_name_container .txt {
+    text-align: center;
+    font-weight: bold;
+    font-size: 18px;
+    margin-top: 10px;
+    line-height: 40px;
+    font-family: '黑体';
+    color: #333333;
+}
+
+.payroll_container .user_name_container .user_name {
+    position: relative;
+    width: 60%;
+    margin: 15px auto;
+    height: 40px;
+    border: 1px solid #ff6600;
+    border-radius: 3px;
+
+}
+
+.payroll_container .user_name_container .user_name input {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border: 0;
+    padding: 0;
+    margin: 0;
+    outline: 0;
+    text-align: center;
+    color: #666;
+}
+
+.payroll_container .user_name_container .check_user_name {
+    font-size: 14px;
+    color: #666;
+    text-align: center;
+    line-height: 30px;
+}
+
+.payroll_container .user_name_container .check_user_name.error {
+    color: red;
+}
+
+.payroll_container .btn_query {
+    width: 80%;
+    background-color: #ff6600;
+    margin-top: 60px;
+    color: #fff;
+    -webkit-box-shadow: 0 4px 8px 0 #ff6600;
+    -moz-box-shadow: 0 4px 8px 0 #ff6600;
+    box-shadow: 0 4px 8px 0 #ff6600;
+    cursor: pointer;
+}
+
+.weui-btn_default:not(.weui-btn_disabled):active {
+    background-color: #ff6600;
+    color: #fff;
+}
+
+.payroll_container > label {
+    margin-top: 25px;
+    text-align: center;
+    line-height: 20px;
+    font-size: 12px;
+}
+
+.weui-agree__checkbox:checked:before {
+    font-size: 18px;
+    color: #ff6600;
+}
+
+.js_dialog .salary_lock {
+    position: fixed;
+    z-index: 5000;
+    width: 80%;
+    max-width: 300px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #FDF4F4;
+    /*text-align: center;*/
+    overflow: hidden;
+    line-height: 40px;
+    border: 1px solid #D0021B;
+    border-radius: 5px;
+    color: #333333;
+}
+
+.js_dialog .salary_lock i {
+    position: relative;
+    float: left;
+    margin: 9px 12px;
+}
+

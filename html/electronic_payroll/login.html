@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>登录</title>
+
+    <!--jquery 引用-->
+    <script src="../../../js/jquery/jquery-2.1.1.min.js"></script>
+    <!--bootstrap样式-->
+    <link href="../../../css/plugins/bootstrap/bootstrap.min.css" rel="stylesheet">
+    <script src="../../../js/plugins/bootstrap/bootstrap.min.js"></script>
+    <!--弹框-->
+    <link href="../../../css/plugins/toastr/toastr.min.css" rel="stylesheet">
+    <script src="../../../js/plugins/toastr/toastr.min.js"></script>
+    <!--公共-->
+    <link href="../../css/el_payroll/pc/electronic_payroll.css" rel="stylesheet">
+    <script src="../../js/urlGroup.js"></script>
+    <script src="../../../js/bran/placeholder.js"></script>
+    <script src="../../../js/bran/bran.js"></script>
+    <script src="../../js/el_payroll/pc/electronic_payroll.js"></script>
+
+    <!--本页面-->
+    <link href="../../css/el_payroll/pc/login.css" rel="stylesheet">
+    <script src="../../js/el_payroll/pc/login.js"></script>
+
+</head>
+<body>
+
+<header>
+
+    <div class="row">
+
+        <div class="col-xs-4 cpy_info">
+            <img src="../../images/el_payroll/cpy_info.png">
+        </div>
+
+        <div class="col-xs-2 txt">电子工资单</div>
+
+        <!--<div class="col-xs-4 payroll_info">-->
+
+        <!--<div class="col-xs-6 payroll_create">-->
+        <!--新建-->
+        <!--</div>-->
+
+        <!--<div class="col-xs-6 payroll_history">-->
+        <!--历史-->
+        <!--</div>-->
+
+        <!--</div>-->
+
+        <!--<div class="col-xs-2 pull-right contact_phone">-->
+        <!--<div>13915581423（赵）</div>-->
+        <!--</div>-->
+
+    </div>
+
+</header>
+
+<section class="container">
+
+    <div class="col-xs-7 left_side">
+
+        <div class="head">
+
+            <img src="../../images/el_payroll/logo.png" class="icon">
+            <div class="txt">电子工资单</div>
+
+        </div>
+
+        <div class="row">
+
+            <div class="col-xs-3 txt">手机号：</div>
+            <div class="col-xs-9 txtInfo user_phone">
+                <input onkeyup="this.value=this.value.replace(/\D/g,'')" maxlength="11"
+                       placeholder="请输入手机号">
+            </div>
+
+        </div>
+
+        <div class="row">
+
+            <div class="col-xs-3 txt">验证码：</div>
+            <div class="col-xs-9 txtInfo verification_code">
+                <input onkeyup="this.value=this.value.replace(/\D/g,'')" maxlength="4"
+                       placeholder="">
+            </div>
+
+            <div class="btn_code">
+                发送验证码
+            </div>
+
+        </div>
+
+        <div class="btn btn-orange btn_probation" onclick="login.signIn()">
+            马上试用
+        </div>
+
+    </div>
+
+    <div class="col-xs-5 right_side">
+
+        <div class="txt">
+            不固定模板格式，灵活导入；<br>
+            <!--支持单个、批量，一键群发。-->
+            一键群发，省时省力又省心！
+        </div>
+
+        <div class="txt">
+            招才进宝电子工资单，<br>
+            用
+            <span class="c_orange">2分钟</span>
+            完成以前
+            <span class="c_orange">2天</span>
+            的工作量！
+        </div>
+
+        <div class="txt" style="text-align: center;">
+            <img src="../../images/el_payroll/qrCode.png">
+            <div>公众号</div>
+        </div>
+
+    </div>
+
+</section>
+
+</body>
+</html>

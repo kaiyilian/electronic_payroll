@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>新建工资单</title>
+
+    <!--jquery 引用-->
+    <script src="../../js/jquery/jquery-2.1.1.min.js"></script>
+    <script src="../../js/jquery/jquery.form.js"></script>
+    <!--bootstrap样式-->
+    <link href="../../../css/plugins/bootstrap/bootstrap.min.css" rel="stylesheet">
+    <!--<link href="../../css/plugins/bootstrap/bootstrap-process.css" rel="stylesheet">-->
+    <script src="../../../js/plugins/bootstrap/bootstrap.min.js"></script>
+    <!--bootstrap-table-->
+    <link href="../../../js/plugins/bootstrap-table/bootstrap-table.css" rel="stylesheet">
+    <script src="../../../js/plugins/bootstrap-table/bootstrap-table.js"></script>
+    <script src="../../../js/plugins/bootstrap-table/bootstrap-table-zh-CN.js"></script>
+    <!--弹框-->
+    <link href="../../../css/plugins/toastr/toastr.min.css" rel="stylesheet">
+    <script src="../../../js/plugins/toastr/toastr.min.js"></script>
+    <!--sweet alert-->
+    <link href="../../../css/plugins/sweetalert/sweetalert.css" rel="stylesheet">
+    <script src="../../../js/plugins/sweetalert/sweetalert.min.js"></script>
+    <!--公共-->
+    <link href="../../../css/bran/loading.css" rel="stylesheet">
+    <link href="../../../css/bran/bran.css" rel="stylesheet">
+    <link href="../../css/el_payroll/pc/electronic_payroll.css" rel="stylesheet">
+    <link href="../../css/el_payroll/step.css" rel="stylesheet">
+
+    <script src="../../js/urlGroup.js"></script>
+    <script src="../../../js/bran/bran.js"></script>
+    <script src="../../js/el_payroll/pc/electronic_payroll.js"></script>
+
+</head>
+<body onclick="electronic_payroll.hideSet()">
+
+<header>
+
+    <div class="row">
+
+        <div class="col-xs-4 cpy_info">
+            <img src="../../images/el_payroll/cpy_info.png">
+        </div>
+
+        <div class="col-xs-2 txt">电子工资单</div>
+
+        <div class="col-xs-4 payroll_info">
+
+            <div class="col-xs-4 payroll_create active">
+                新建工资条
+            </div>
+
+            <div class="col-xs-4 payroll_history">
+                历史工资条
+            </div>
+
+            <div class="col-xs-4 payroll_set">
+                设置
+            </div>
+
+        </div>
+
+    </div>
+
+</header>
+
+<section class="container">
+
+    <ul class="nav nav-pills nav-justified step step-round">
+
+        <li class="active">
+            <a>上传Excel表格</a>
+        </li>
+
+        <li>
+            <a>预览核对工资</a>
+        </li>
+
+        <li>
+            <a>发送工资条</a>
+        </li>
+
+    </ul>
+
+    <div class="step_list">
+
+        <div class="step_item step_1 hide">
+
+            <div class="tl">直接上传您的日常工资表</div>
+            <div class="t_preview" onclick="create.previewShow()">
+                查看表格规则
+            </div>
+            <!--<div class="tlc">-->
+            <!--请将第一行作为表头，不要留空或合并单元格<br>-->
+            <!--请包含员工的姓名、手机号码、邮箱（选填）、实发工资-->
+            <!--</div>-->
+
+            <div class="salary_info_container">
+
+                <div class="row">
+
+                    <div>
+                        薪资月份：
+                    </div>
+
+                    <div class="year_month_container">
+
+                        <select class="year">
+                            <option>2017年</option>
+                        </select>
+
+                        <select class="month">
+                            <option>7月</option>
+                        </select>
+
+                    </div>
+
+                </div>
+
+                <div class="row">
+
+                    <span>
+                        薪资名称：
+                    </span>
+
+                    <span class="salary_name">
+                        <input class="" placeholder="工资单、春节福利等，最多8个字" maxlength="8">
+                    </span>
+
+                </div>
+
+                <div class="row salary_corp_name_container">
+
+                    <span>
+                        子公司名：
+                    </span>
+
+                    <span class="salary_corp_name">
+                        <input class="" placeholder="代发子公司的名称，最多20个字" maxlength="20">
+                    </span>
+
+                </div>
+
+            </div>
+
+            <div class="btn_list">
+
+                <div class="btn btn-orange btn_upload" onclick="create.ChooseFileClick()">
+                    上传工资单
+                </div>
+
+                <div class="btn_replace active" onclick="create.salaryReplace()">
+                    代发
+                </div>
+
+            </div>
+
+
+            <!--<div class="row">-->
+
+            <!--<span class="c_orange">想看员工收到的工资单长啥样？</span>-->
+            <!--点击-->
+            <!--<span class="c_1490d2 default_salary" onclick="create.receiveDefaultSalary()">收取</span>-->
+            <!--，我们将会给您的手机号发送一条模拟工资单，默认查看姓名“小宝”。-->
+
+            <!--</div>-->
+
+            <div class="info_prompt">
+
+                <div class="txt">特别声明：</div>
+
+                <ul>
+                    <li> 薪资加密存储，任何人都无法查看</li>
+                    <li> 支持无痕撤回，线上数据即时删除</li>
+                    <li>
+                        查看
+                        <a href="user_agreement.html" class="c_1490d2" target="_blank">
+                            《招才进宝工资单法律声明及隐私条款》
+                        </a>
+                    </li>
+                </ul>
+
+            </div>
+
+        </div>
+
+        <div class="step_item step_2 hide">
+
+            <div class="salary_excel_info hide">
+
+                <div class="file_name"></div>
+
+                <div class="table_container">
+                    <table id="tb_salary"></table>
+                </div>
+
+                <div class="tl_check_container">
+
+                    <div class="row">
+
+                        <div class="txt">标题检验</div>
+
+                        <div class="t_preview c_1490d2" onclick="create.previewShow()">
+                            查看表格规则
+                        </div>
+
+                    </div>
+
+                    <div class="tl_check_list"></div>
+
+                </div>
+
+                <div class="err_msg_container hide">
+
+                    <div class="txt">
+                        错误提示
+                    </div>
+
+                    <div class="err_msg_list">
+
+                        <!--<div class="item"></div>-->
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="salary_excel_error hide">
+
+                <div class="tl">
+                    实在抱歉，竭尽全力也没能把小主的表格解析出来 ，一定是格式的姿势不对~
+                </div>
+
+                <div class="tlc">
+                    请依照下方提示检查您的工资表哪里有问题哦！
+                </div>
+
+                <div class="btn btn-orange btn_prev_upload" onclick="create.stepPrevUpload()">
+                    返回上一步重新上传
+                </div>
+
+                <div class="salary_rule_img">
+                    <img src="../../images/el_payroll/payroll_preview.png">
+                </div>
+
+            </div>
+
+            <div class="btn_list">
+
+                <div class="btn btn-orange btn_prev_upload" onclick="create.stepPrevUpload()">
+                    返回上一步重新上传
+                </div>
+
+                <div class="col-xs-offset-1 btn btn-orange btn_next" onclick="create.stepNext()">
+                    下一步发送
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="step_item step_3 hide">
+
+            <div class="salary_name">
+                <!--2017年9月 标题-->
+            </div>
+
+            <div class="payroll_info">
+
+                <div class="pull-left left_side">
+
+                    <div class="txt">员工名单</div>
+
+                    <div class="user_list">
+
+                        <!--<div class="user_item" data-id="1">-->
+                        <!--<span class="no">1</span>-->
+                        <!--<span>张三</span>-->
+                        <!--<div class="user_phone">13115109071</div>-->
+                        <!--</div>-->
+
+                    </div>
+
+                </div>
+
+                <div class="pull-right right_side">
+
+                    <div class="txt real_salary_container">
+                    <span class="key">
+                        <!--实发薪资：-->
+                    </span>
+                        <span class="value real_salary">
+                        <!--18521.21-->
+                    </span>
+                    </div>
+
+                    <div class="salary_detail">
+
+                        <!--<div class="item">-->
+                        <!--<div class="key">身份证号</div>-->
+                        <!--<div class="value">32283199200003333</div>-->
+                        <!--</div>-->
+
+                        <!--<div class="item">-->
+                        <!--<div class="key">年份</div>-->
+                        <!--<div class="value">2017</div>-->
+                        <!--</div>-->
+
+                        <!--<div class="item">-->
+                        <!--<div class="key">年份</div>-->
+                        <!--<div class="value">2017</div>-->
+                        <!--</div>-->
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="contact_info">
+
+                <div class="row">
+
+                    <div class="col-xs-offset-1 col-xs-2 txt">您的姓名：</div>
+                    <div class="col-xs-8 txtInfo user_name">
+                        <input class="" maxlength="8">
+                    </div>
+
+                </div>
+
+                <div class="row">
+
+                    <div class="col-xs-offset-1 col-xs-2 txt">公司名称：</div>
+                    <div class="col-xs-8 txtInfo corp_name">
+                        <input class="" maxlength="20">
+                    </div>
+
+                </div>
+
+                <div class="row">
+
+                    <div class="col-xs-offset-2 txt" style="font-size: 12px;">
+                        首次使用别忘了填写您的姓名和企业名称哦，
+                        <span class="c_orange">下次可免填</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="btn_list">
+
+                <div class="col-xs-offset-1 btn btn-orange btn_send" onclick="create.payrollSend()">
+                    发送
+                </div>
+
+                <div class="col-xs-offset-2 btn btn-orange btn_prev" onclick="create.stepPrev()">
+                    返回上一步
+                </div>
+
+            </div>
+
+            <div class="row user_agreement active">
+
+            <span onclick="create.chooseAgreement()">
+                <img src="../../images/el_payroll/icon_checked.png">
+            </span>
+
+                使用工资条即代表您同意
+
+                <a href="user_agreement.html" target="_blank">
+                    《招才进宝工资单法律声明及隐私条款》
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<div class="modal fade payroll_preview_modal" style="background-color:rgba(0,0,0,0.50);">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <!--<div class="modal-header">-->
+            <!--<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span-->
+            <!--aria-hidden="true">&times;</span></button>-->
+            <!--</div>-->
+            <div class="modal-body">
+
+                <img src="../../images/el_payroll/payroll_preview.png">
+
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+
+<div class="modal fade salary_validity_modal" style="background-color:rgba(0,0,0,0.50);">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">薪资单有效期</h4>
+            </div>
+            <div class="modal-body" style="padding:50px 0;">
+
+                <div class="row">
+
+                    <div class="col-xs-4" style="line-height:34px;text-align: right;">薪资单有效期：</div>
+                    <div class="col-xs-6 salary_validity">
+                        <select class="form-control">
+                            <option value="0">永久</option>
+                            <option value="1">1个月</option>
+                            <option value="2">2个月</option>
+                            <option value="6">6个月</option>
+                            <option value="12">一年</option>
+                        </select>
+                    </div>
+
+                    <div class="col-xs-offset-4 col-xs-6 c_orange" style="margin-top: 30px;line-height:20px;">
+                        超时之后，员工将无法查看历史薪资单
+                    </div>
+
+                </div>
+
+            </div>
+            <div class="modal-footer" style="text-align: center;">
+                <!--<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>-->
+                <button type="button" class="btn btn-orange" onclick="electronic_payroll.salaryValiditySave()">
+                    确定
+                </button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+
+<!--本页面-->
+<link href="../../css/el_payroll/pc/create.css" rel="stylesheet">
+<script src="../../js/el_payroll/pc/create.js"></script>
+
+</body>
+</html>

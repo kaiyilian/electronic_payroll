@@ -1,0 +1,77 @@
+
+body {
+    background: #f2f2f2;
+    margin: 0 auto;
+}
+
+.payroll_info_container {
+}
+
+.payroll_info_container .basic_info {
+    text-align: center;
+    background-color: #fff;
+    padding: 15px 0 25px;
+}
+
+.payroll_info_container .basic_info .corp_name {
+    line-height: 40px;
+    margin-bottom: 20px;
+}
+
+.payroll_info_container .basic_info .salary_month,
+.payroll_info_container .basic_info .salary_real {
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 40px;
+    height: 40px;
+}
+
+.payroll_info_container .basic_info .txt {
+    color: #666;
+    font-size: 14px;
+    /*line-height: 30px;*/
+}
+
+.payroll_info_container .salary_name {
+    position: relative;
+    line-height: 30px;
+    /*background-color: #fff;*/
+    padding-left: 15px;
+    margin: 0;
+    font-size:12px;
+}
+
+.payroll_info_container .salary_name:before {
+    position: absolute;
+    content: "";
+    width: 3px;
+    height: 16px;
+    top: 10px;
+    left: 12px;
+    /*background-color: #4ddc4d;*/
+    display: none;
+}
+
+.payroll_info_container .salary_detail {
+    position: relative;
+    font-size: 14px;
+}
+
+.payroll_info_container .salary_detail .item {
+    background-color: #fff;
+    position: relative;
+    padding: 0 15px;
+    line-height: 40px;
+    /*margin-bottom: 15px;*/
+}
+
+.payroll_info_container .salary_detail .item:nth-child(2n+2) {
+    background-color: #FAFAFF;
+}
+
+.payroll_info_container .salary_detail .item .key {
+}
+
+.payroll_info_container .salary_detail .item .val {
+    text-align: right;
+}

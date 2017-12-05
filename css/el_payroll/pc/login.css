@@ -1,0 +1,83 @@
+
+section.container {
+    padding-top: 80px;
+}
+
+section.container .left_side {
+    height: 100%;
+    padding: 0 80px 0 70px;
+    border-right: 1px solid #bfbfbf;
+}
+
+section.container .left_side .head {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+section.container .left_side .head .txt {
+    line-height: 50px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+section.container .left_side .row {
+    margin: 0 0 25px;
+    position: relative;
+    height: 40px;
+    line-height: 40px;
+    background-color: #f1f1f1;
+    border-radius: 5px;
+}
+
+section.container .left_side .row .txt {
+    position: relative;
+    height: 100%;
+    color: #787878;
+    text-align: center;
+}
+
+section.container .left_side .row .txtInfo {
+    position: relative;
+    height: 100%;
+}
+
+section.container .left_side .row .txtInfo input {
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    border: 0;
+    margin: 0;
+    outline: 0;
+    background: transparent;
+    color: #787878;
+}
+
+section.container .left_side .row .verification_code {
+    padding-right: 100px;
+}
+
+section.container .left_side .row .btn_code {
+    position: absolute;
+    right: 10px;
+    top: 0;
+    color: #1490d2;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+section.container .left_side .btn_probation {
+    width: 100%;
+    margin-top: 15px;
+    line-height: 26px;
+    font-size: 15px;
+    box-shadow: 0 5px 6px 0px rgba(255, 118, 18, 0.7);
+}
+
+section.container .right_side {
+    padding: 50px 85px 0 60px;
+}
+
+section.container .right_side .txt {
+    line-height: 25px;
+    margin-bottom: 25px;
+}

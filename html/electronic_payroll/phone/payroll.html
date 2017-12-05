@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="renderer" content="webkit">
+    <title>招才进宝工资单</title>
+
+    <!--jquery 引用-->
+    <script src="../../../js/jquery/jquery-2.1.1.min.js"></script>
+
+    <!--微信样式-->
+    <link href="../../../js/weui/weui.css" rel="stylesheet"/>
+
+    <!--公共-->
+    <script src="../../../js/bran.js"></script>
+    <script src="../../../js/urlGroup.js"></script>
+
+    <!--本页面-->
+    <link href="../../../css/el_payroll/phone/payroll.css" rel="stylesheet"/>
+    <script src="../../../js/el_payroll/phone/payroll.js"></script>
+
+</head>
+
+<body>
+
+<div class="payroll_container">
+
+    <div class="weui-flex basic_info_container">
+
+        <div class="weui-flex__item">
+            <div class="placeholder corp_name">
+                <!--招才进宝科技有限公司-->
+            </div>
+        </div>
+
+        <div class="weui-flex__item">
+            <div class="placeholder salary_send_time">
+                <!--2017.05.12发送-->
+            </div>
+        </div>
+
+    </div>
+
+    <div class="weui-flex salary_name_container">
+        <div class="weui-flex__item">
+            <div class="placeholder salary_name">
+                <!--2017年8月 第二周薪资-->
+            </div>
+        </div>
+    </div>
+
+    <div class="user_name_container">
+
+        <div class="weui-flex">
+            <div class="weui-flex__item">
+                <div class="placeholder txt">
+                    姓名验证
+                </div>
+            </div>
+        </div>
+
+        <div class="user_name">
+            <input type="text" maxlength="8" placeholder="输入真实姓名">
+        </div>
+
+        <div class="weui-flex">
+            <div class="weui-flex__item">
+                <div class="placeholder check_user_name">
+                    <!--输错3次工资单将被锁定-->
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="weui-btn weui-btn_default btn_query" onclick="payroll.salaryQuery()">
+        签收并查看工资
+    </div>
+
+    <label for="weuiAgree" class="weui-agree choose_agreement">
+        <input id="weuiAgree" type="checkbox" class="weui-agree__checkbox" checked>
+        <span class="weui-agree__text">
+                查看工资单即代表您同意
+            <a href="agreement.html">《招才进宝工资单法律声明及隐私条款》</a>
+        </span>
+    </label>
+
+</div>
+
+<div class="js_dialog" style="opacity: 1;display: none;">
+    <div class="weui-mask"></div>
+    <div class="weui-dialog">
+
+        <div class="weui-dialog__bd">弹窗内容，告知当前状态、信息和解决方法，描述文字尽量控制在三行内</div>
+        <div class="weui-dialog__ft" onclick="payroll.dialogHide()">
+            <a href="javascript:;" class="weui-dialog__btn weui-dialog__btn_primary">知道了</a>
+        </div>
+
+    </div>
+
+    <div class="salary_lock">
+        <i class="weui-icon-cancel" onclick="payroll.dialogHide()"></i>
+        三次输入错误，请明天再试！
+    </div>
+
+</div>
+
+<div style="display:none">
+    <script src="https://s19.cnzz.com/z_stat.php?id=1262291682&web_id=1262291682" language="JavaScript"></script>
+</div>
+
+</body>
+
+</html>
